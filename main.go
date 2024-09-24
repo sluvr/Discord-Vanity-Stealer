@@ -19,7 +19,7 @@ func main () {
   runtime.GOMAXPROCS(4)
   go func () {   
     client := &http.Client{}
-    var json  = []byte(`{"code":"abcxyz"}`) // abcxyz is the vanity you want in the server you stealing from
+    var json  = []byte(`{"code":"gotcha"}`) // abcxyz is the vanity you want in the server you stealing from
     ses, err := http.NewRequest("PATCH", fmt.Sprintf("https://discord.com/api/v9/guilds/%s/vanity-url", removeguild), bytes.NewBuffer(json))
     ses.Header.Set("authorization", token)
     ses.Header.Set("Content-Type", "application/json")
@@ -39,7 +39,7 @@ func main () {
   
   go func () {
     client := &http.Client{}
-    var jsonn  = []byte(`{"code":"abcxyz"}`) // abcxyz is the vanity you stealing
+    var jsonn  = []byte(`{"code":"stole"}`) // abcxyz is the vanity you stealing
     ses2, err := http.NewRequest("PATCH", fmt.Sprintf("https://discord.com/api/v9/guilds/%s/vanity-url", keepguild), bytes.NewBuffer(jsonn))
     ses2.Header.Set("authorization", token)
     ses2.Header.Set("Content-Type", "application/json")
